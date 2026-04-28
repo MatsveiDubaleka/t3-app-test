@@ -24,9 +24,12 @@ const authOptions: BetterAuthOptions = {
   },
   advanced: {
     useSecureCookies: isProd,
-    defaultCookieAttributes: isProd
-      ? { sameSite: "none", secure: true }
-      : { sameSite: "lax", secure: false },
+    // OAuth callbacks are top-level navigations; SameSite=Lax allows state
+    // cookies on callback while avoiding cross-site third-party cookie issues.
+    defaultCookieAttributes: {
+      sameSite: "lax",
+      secure: isProd,
+    },
   },
   socialProviders: {
     github: {
