@@ -8,7 +8,7 @@ const isProd = env.NODE_ENV === "production";
 
 const authOptions: BetterAuthOptions = {
   database: prismaAdapter(db, {
-    provider: "postgresql", // or "sqlite" or "mysql"
+    provider: "postgresql",
   }),
   secret: env.BETTER_AUTH_SECRET,
   baseURL: env.BETTER_AUTH_URL,
