@@ -11,7 +11,7 @@ const authOptions: BetterAuthOptions = {
     provider: "postgresql", // or "sqlite" or "mysql"
   }),
   secret: env.BETTER_AUTH_SECRET,
-  baseURL: env.BETTER_AUTH_URL as string,
+  baseURL: env.BETTER_AUTH_URL,
   trustedOrigins: [
     env.BETTER_AUTH_URL,
     process.env.WEB_ORIGIN ?? "http://localhost:3000",
