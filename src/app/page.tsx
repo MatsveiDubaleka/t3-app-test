@@ -61,6 +61,7 @@ export default async function Home() {
                     formAction={async () => {
                       "use server";
                       const res = await auth.api.signInSocial({
+                        headers: await headers(),
                         body: {
                           provider: "github",
                           callbackURL: "/",
@@ -79,6 +80,7 @@ export default async function Home() {
                     formAction={async () => {
                       "use server";
                       const res = await auth.api.signInSocial({
+                        headers: await headers(),
                         body: {
                           provider: "google",
                           callbackURL: "/",
