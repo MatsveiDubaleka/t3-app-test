@@ -16,6 +16,8 @@ const geist = Geist({
   variable: "--font-geist-sans",
 });
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -23,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         <Analytics />
-        <SpeedInsights />
+        {isProduction && <SpeedInsights />}
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
